@@ -130,9 +130,110 @@ Quadding meshes is a very tedious albeit necessary task. There are a few methods
 
 AC Modder Trawa goes more in depth about quadding/retopologizing models in the [following video](https://www.youtube.com/watch?v=Tg-TauMHpWs "Trawa retopo vid").
 
+In my case, I had found a triangulated mesh I wanted to smooth. 
+
+![Image](https://files.catbox.moe/l0lqlf.jpg "Mesh to quad")
+
+After quadding and smoothing:
+
+![Image](https://files.catbox.moe/th6eqv.jpg "Quadded + smoothed mesh")
 
 
+After I was finished with the whole process, it's time to assign materials.
+
+## Materialization
+
+Materials define the properties of a certain mesh. Things like leather, metal, plastic are some prime examples of materials being used in AC cars.
+
+### Setting up the Material Editor (3DS MAX)
+
+Press the 'M' key on your keyboard to open the Material Editor. You will see a menu with big spheres, which are samples for the materials you might be working with in your project. In order to see more of them simultaneously, open the `Options` menu and select the `Cycle 3X2, 5X3, 6X4 Sample Slots` 3 times.
+
+![Image](https://files.catbox.moe/urp6zo.jpg "Increasing sample visibility")
+
+## Basic Material Editor Functions
+
+![Image](https://files.catbox.moe/xzc1cv.jpg "Material Editor Toolbar")
+
+This is the Material Editor toolbar. I recommend you get accustomed to it since this will be used frequently for modding purposes. The main functions that are going to be used are the ones highlighted in the picture above. We're going to be covering them from left to right, top to bottom.
+
+1. Get Material - Used to grab a material from a scene, to reapply onto another mesh.
+2. Assign Material to Selection - Assigns a selected material onto a selected mesh.
+3. Reset Map/Mtl (Material) to Default Settings - Deletes the selected material from the material editor.
+4. Pick Material from Object - Acts as the generic Color Picker but for Materials.
+5. Material Bar - Displays the current material's name. It's also where they're renamed.
+
+### General Materialization Workflow
+
+The general workflow for materialization is the following:
+
++ Attach all the meshes that will have the same material (eg. attach all plastic meshes)
++ Open the material editor, and using the Material Bar, give it a name following clear naming conventions and explicitly stating the surface properties it will have (if a material will be metal, name it as such). 
++ Select the mesh that will have the material created and assign the material using the method described in (2).
+
+After working on the model and materializing, the next step is UV-Mapping.
+
+## UV Unwrapping
+
+### What is a 'UV'?
+
+>UVs are two-dimensional texture coordinates that correspond with the vertex information for your geometry. UVs are vital because they provide the link between a surface mesh and how an image texture gets applied onto that surface. (...) By default, most 3D applications will create an automatic UV layout when the mesh is originally created. However if you were to drop the texture (...) directly onto the 3D model, the chances are good that you would see very undesirable results. This occurs because during the modeling process, the UVs aren't usually taken into account and, as a result, the 2D image can't wrap around a 3D object the way you would expect to see. Once your model is complete, in order to properly texture your model, you need to begin the process of laying out the UVs (often referred to as UV mapping). **This basically is the process of creating a 2D representation of your 3D object.** Imagine your model unfolded and flattened out into a flat 2D image. Where would the natural seams occur? Where on the 3D model would the most detail be needed? (...)
+
+-From Understanding UVs - Love Them or Hate Them, They're Essential to Know (https://www.pluralsight.com/blog/film-games/understanding-uvs-love-them-or-hate-them-theyre-essential-to-know)
+
+For AC modding, a proper UV unwrap is crucial as it will be used for baking AO maps (short for Ambient Occlusion)
 
 
+### Some generic principles for AC oriented UV Mapping
 
+1. Avoid planar mapping, as it produces more often that not suboptimal results, and horrible seams. Peel mapping is the preffered alternative at the moment.
+2. Do not rely on auto seams and auto pack. Auto Seaming will try it's best to produce a stretchless UV, but in doing so it will create a lot of visible seams on your model. Auto pack will not be able to efficiently manage all of the UV space, meaning some parts will be losing detail unecessarily. 
+3. Piggybacking off of (2), make sure to efficiently use all of your UV space, in order to have every part of the UV be the most detailed as it can be.
+4. Place seams on places that are not visible in your model. 
+
+
+UV unwrapping isn't really an algorithmic process, meaning the best way to learn is to look at good mapping and try to follow the same techniques.
+
+AC modder Azu has some good videos (albeit a bit dated by now) on the process.
+
++ [Rim UV Mapping 1 (28/01/2020)](https://www.youtube.com/watch?v=m4LJWP5B5uY)
++ [Rim UV Mapping 2 (09/05/2020)](https://www.youtube.com/watch?v=2fToss6JZ7Q)
++ [Car UV Mapping 1 (30/05/2020)](https://www.youtube.com/watch?v=9xtN_ZOWpMY)
++ [Car UV Mapping 2 (03/06/2020)](https://www.youtube.com/watch?v=iCOhwoTTQEk)
++ [Car UV Mapping 3 (18/07/2020)](https://www.youtube.com/watch?v=CJFwjUnhAn0)
++ [Car UV Mapping 4 (04/08/2020)](https://www.youtube.com/watch?v=LePGemCBUW8)
++ [Car UV Mapping 5 (05/01/2021)](https://www.youtube.com/watch?v=ATZ0nJ0X6mY)
++ [Car UV Mapping 6 (21/01/2021)](https://www.youtube.com/watch?v=blYNWoKOS2g)
+
+Below are some rim UV maps from good AC car mods.
+
+![Image](https://files.catbox.moe/d5nmfq.jpg)
+
+Axis' Porsche 930
+
+![Image](https://files.catbox.moe/jbt0qw.jpg)
+
+Trawa/Azu's FD3S Type-A
+
+![Image](https://files.catbox.moe/jg9gkh.jpg)
+
+Trawa's FD3S C-West
+
+![Image](file:///C:/Users/Gustavo/Desktop/guide/pschd_rim_uv.jpg)
+
+Psychedd's FD3S Re-Amemiya
+
+![Image](https://files.catbox.moe/erisa4.jpg)
+
+Psychedd's Integra DC2
+
+Note how all of the UV's are following in one way or the other the principles i've listed above.
+
+## Model Exporting and KS Editor Overview
+
+By now your model should be ready to be exported.
+
+Export your model using the recommended settings in the pipeline and load up the .fbx file in KS Editor (`...\assettocorsa\sdk\editor`).
+
+### Some notes about KS Editor 
 
