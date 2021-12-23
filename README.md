@@ -2,18 +2,18 @@
 ---
 
 ## Preface
-This isn't meant to ba a definitive guide on Gran Turismo Sport rim conversion, its only suposed to serve as a documentation of the process for absolute beginners. I have relatively few experience in modding, so I might have made some mistakes along the way, if such is the case, please contact me and I will do my best to fix them. This is a learning process from me, any advice I can get, is advice i'm able to give back to the community.
+This isn't meant to be a definitive guide on Gran Turismo Sport rim conversion, its only suposed to serve as a documentation of the process for absolute beginners. I have relatively little experience in modding, so there is the potential for mistakes. If that is the case, please contact me and I will do my best to fix them. This is a learning process for me, any advice I recieve, is advice i'm willing and able to give back to the community.
 
 ## What is "rim swapping"?
-Rim swapping is a process where you replace the existing rims on an existing car for a new set of rims. The old way of swapping rims involved manually swapping them in 3D software, but now there is a new method which uses a Custom Shaders Patch feature (elaborate) which makes the method more convenient and more respectful to the original car (if done in a tasteful fashion)
+Rim swapping is a process where you replace the existing rims on an existing car with a different set of rims. The older methodology involved manually swapping them in 3D software, but now there is a new method which uses a Custom Shaders Patch feature called Object Replacement which makes the method more convenient and more respectful to the original modder as you do not need the 3d files of the car. (of course, only if done in a tasteful fashion)
 
 ## Why is "rim swapping" frowned upon?
-(elaborate, add pics of bad examples)
+Rim swapping can be frowned upon as it often changes the original image, style or intent of a modders work. Therefore it has the capacity to make a modder's work appear differently to an audience which can sway their opinion about a modder. There is also the issue of permissions to edit a modders work. Rim swapping is a grey area with obtaining permission. The process is quite easy, and does not require the car's 3d files so often people do not feel the need to obtain permission.
 
-For the aformentioned reasons, I will not be covering the rim swapping process.
+For the aforementioned reasons, I will not be covering the rim swapping process.
 
 ## Why convert rims from Gran Turismo Sport (GTS)?
-Gran Turismo Sport is usually the game where you can obtain **accurate** and **high-poly** rims. Their models are also extracted in quads, meaning working with them will be much simpler. (I'll go more in depth further ahead) Generally, some textures are also very good, meaning you won't have to spend much time reworking them.
+Gran Turismo Sport is more often than not the game where you can obtain **accurate** and **high-poly** rim 3d. Their models are also extracted in quads, this makes uv mapping easier and you can more easily edit them if they are innacurate, etc... (I'll go more in depth further ahead) Generally, some textures are also very good, meaning you won't have to spend much time reworking them.
 
 Besides these practical terms, GTS rim conversion has a simillar methodology to GTS car conversion, meaning this is a good stepping stone for beginner modders looking to gain some experience before starting a big project.
 
@@ -33,7 +33,7 @@ Besides these practical terms, GTS rim conversion has a simillar methodology to 
 You're also going to need experience with your 3d software of choice: The bare minimum for a rim conversion is deleting extra objects/edges, apply modifiers, materialization of objects and uv unwrapping.
 
 
-This guide will use 3ds max 2022 and Rizom 2020.1.
+This guide will use 3ds max 2022 and Rizom Real Space 2020.1.
 
 ## (Optional) Ripping the models/textures
 
@@ -194,7 +194,7 @@ For AC modding, a proper UV unwrap is crucial as it will be used for baking AO m
 
 UV unwrapping isn't really an algorithmic process, meaning the best way to learn is to look at good mapping and try to follow the same techniques.
 
-AC modder Azu has some good videos (albeit a bit dated by now) on the process.
+AC modder Azuane has some good videos on the process.
 
 + [Rim UV Mapping 1 (28/01/2020)](https://www.youtube.com/watch?v=m4LJWP5B5uY)
 + [Rim UV Mapping 2 (09/05/2020)](https://www.youtube.com/watch?v=2fToss6JZ7Q)
@@ -235,5 +235,6 @@ By now your model should be ready to be exported.
 
 Export your model using the recommended settings in the pipeline and load up the .fbx file in KS Editor (`...\assettocorsa\sdk\editor`).
 
-### Some notes about KS Editor 
-
+### Some notes about ksEditor 
+There are many tutorials that you can use to learn the basics and familiarise yourself with the software. I found [this video](https://www.youtube.com/watch?v=bT0uIbSrrr8&ab "Assetto Corsa ksEditor Introduction & Basics Tutorial") to be of most use.
+Generally ksEditor is where you will be assigning shaders to your model, applying textures and exporting into Assetto Corsa through kn5 files.
